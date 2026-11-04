@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afsan Infinite Multiverse DevLabs</title>
+<meta name="description" content="Challenge videos, projects and future ventures from Afsan Infinite Multiverse DevLabs: app dev, web dev, game dev, AI, 3D, VFX, design and more.">
+<meta name="theme-color" content="#15112b">
+<style>
+:root{--bg:#15112b;--bg2:#1f1940;--ink:#f3efff;--mute:#b3aad6;--line:#3a3166;--card:#1d1740}
+@media (prefers-color-scheme:light){:root{--bg:#f6f3ff;--bg2:#ebe6ff;--ink:#1c1640;--mute:#585083;--line:#cfc7f0;--card:#fff}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:radial-gradient(1200px 600px at 80% -10%,var(--bg2),transparent 70%),var(--bg);color:var(--ink);font:16px/1.55 "Avenir Next","Segoe UI",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:12px}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 20px}
+header .wrap{padding-top:22px;font-weight:700;letter-spacing:.2px}
+header a{display:inline-flex;align-items:center;gap:10px}
+.dot{width:14px;height:14px;border-radius:50%;background:conic-gradient(#ff8a65,#ffc857,#2fd4b5,#6f8bff,#b277ff,#ff8a65)}
+main{flex:1}
+h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:1.05;margin:36px 0 14px;font-weight:800;letter-spacing:-.02em;max-width:14ch}
+.lead{color:var(--mute);max-width:46ch;margin:0 0 34px;font-size:1.08rem}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{--c:#888;position:relative;display:block;overflow:hidden;padding:24px;min-height:190px;border:1px solid var(--line);border-radius:26px;background:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--c) 38%,transparent),transparent 62%),var(--card);transition:transform .18s,border-color .18s}
+.card:hover{transform:translateY(-4px);border-color:var(--c)}
+.planet{position:absolute;right:-26px;top:-26px;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff8,var(--c) 45%,color-mix(in srgb,var(--c) 40%,#000) 100%);opacity:.95}
+.card h2{margin:62px 0 6px;font-size:1.65rem;line-height:1.1}
+.card p{margin:0;color:var(--mute);font-size:.98rem}
+.back{display:inline-block;margin:30px 0 4px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--mute);font-size:.95rem}
+.back:hover{color:var(--ink)}
+.page h1{max-width:none;margin:14px 0 10px}
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));padding-bottom:40px}
+.tile{--c:#888;display:flex;gap:12px;align-items:center;padding:16px;border:1px solid var(--line);border-left:5px solid var(--c);border-radius:16px;background:var(--card)}
+a.tile:hover{border-color:var(--c)}
+.tile b{display:block;line-height:1.25}
+.tile small{display:block;color:var(--mute);line-height:1.35;margin-top:2px}
+.tile svg{flex:none;width:30px;height:30px;color:var(--c)}
+.emoji{flex:none;font-size:1.6rem;width:30px;text-align:center}
+footer{border-top:1px solid var(--line);margin-top:24px;padding:26px 0 30px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.soc{display:flex;flex-wrap:wrap;gap:10px}
+.soc a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card)}
+.soc a:hover{border-color:var(--ink)}
+.soc svg{width:22px;height:22px}
+.copy{color:var(--mute);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="#/"><span class="dot"></span>Afsan Infinite Multiverse DevLabs</a></div></header>
+<main><div class="wrap" id="app"></div></main>
+<footer><div class="wrap"><div class="soc" id="soc"></div><div class="copy" id="copy"></div></div></footer>
+<noscript><p style="padding:20px">Please turn on JavaScript to see this site.</p></noscript>
+
+<script>
+/* =====================================================
+   EDIT ONLY THIS PART. Everything below it runs by itself.
+   - Add a card: copy one { ... } block inside "cards" and change it.
+   - Remove a card: delete its { ... } block.
+   - Add a category or plan: add a line like { name: "My Item" } to "items".
+   - Add a link to an item: { name: "My Item", url: "https://..." }
+   ===================================================== */
+const SITE = {
+  name: "Afsan Infinite Multiverse DevLabs",
+  copyright: "Afsan Infinite Multiverse DevLabs",
+
+  // Footer icons and the Afsan page. icon can be:
+  // youtube, instagram, x, github, linkedin, facebook, telegram, discord, link
+  socials: [
+    { name: "YouTube",   url: "https://youtube.com/@YOUR_CHANNEL",      icon: "youtube" },
+    { name: "Instagram", url: "https://instagram.com/YOUR_ID",          icon: "instagram" },
+    { name: "X",         url: "https://x.com/YOUR_ID",                  icon: "x" },
+    { name: "GitHub",    url: "https://github.com/YOUR_ID",             icon: "github" },
+    { name: "LinkedIn",  url: "https://linkedin.com/in/YOUR_ID",        icon: "linkedin" },
+    { name: "Facebook",  url: "https://facebook.com/YOUR_ID",           icon: "facebook" },
+    { name: "Telegram",  url: "https://t.me/YOUR_ID",                   icon: "telegram" },
+    { name: "Discord",   url: "https://discord.gg/YOUR_INVITE",         icon: "discord" }
+  ],
+
+  heroTitle: "Challenges, builds and a future company.",
+  heroText: "One brand, every craft. Pick a universe to start.",
+
+  cards: [
+    { id: "afsan", title: "Afsan", color: "#ff8a65",
+      tagline: "Meet the creator and connect with me.",
+      show: "socials" },
+
+    { id: "infinite", title: "Infinite", color: "#6f8bff",
+      tagline: "Creative work with no limits.",
+      items: [
+        { name: "3D Animation",    emoji: "🎬" },
+        { name: "3D Modeling",     emoji: "🧊" },
+        { name: "VFX / CGI",       emoji: "💥" },
+        { name: "Motion Graphics", emoji: "🌀" },
+        { name: "Graphic Design",  emoji: "🎨" },
+        { name: "Video Editing",   emoji: "✂️" },
+        { name: "2D Animation",    emoji: "🖍️" },
+        { name: "Digital Art",     emoji: "🖌️" },
+        { name: "Drawing & Sketching", emoji: "✏️" }
+      ] },
+
+    { id: "multiverse", title: "Multiverse", color: "#b277ff",
+      tagline: "Every category, each one a universe.",
+      merge: ["infinite", "devlabs"],   // pulls items from these cards
+      suffix: " Universe" },
+
+    { id: "devlabs", title: "DevLabs", color: "#2fd4b5",
+      tagline: "Code, data and security experiments.",
+      items: [
+        { name: "App Dev",            emoji: "📱" },
+        { name: "Web Dev",            emoji: "🌐" },
+        { name: "Game Dev",           emoji: "🎮" },
+        { name: "Software Dev",       emoji: "💻" },
+        { name: "Coding / Programming", emoji: "⌨️" },
+        { name: "Data Science",       emoji: "📊" },
+        { name: "AI / ML",            emoji: "🤖" },
+        { name: "Ethical Hacking",    emoji: "🕵️" },
+        { name: "Cyber Security",     emoji: "🔐" }
+      ] },
+
+    { id: "future", title: "Future Ventures", color: "#ffc857",
+      tagline: "What the company will become.",
+      items: [
+        // Sample plans. Replace them with your real ones.
+        { name: "Game Studio",      desc: "Sample plan. Edit me.", emoji: "🕹️" },
+        { name: "Animation House",  desc: "Sample plan. Edit me.", emoji: "🎞️" },
+        { name: "Learning Academy", desc: "Sample plan. Edit me.", emoji: "🎓" },
+        { name: "Software Products", desc: "Sample plan. Edit me.", emoji: "🚀" }
+      ] }
+  ]
+};
+/* ================= END OF EDIT AREA ================= */
+
+const I = {
+  youtube:'<path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/>',
+  instagram:'<g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/>',
+  x:'<path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
+  github:'<path fill="currentColor" d="M12 2C6.5 2 2 6.6 2 12.3c0 4.5 2.9 8.4 6.8 9.7.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.4-3.4-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 2.9.9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4-1.3 6.8-5.2 6.8-9.7C22 6.6 17.5 2 12 2z"/>',
+  linkedin:'<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.6v.01M12 16v-5.5M12 12.8c0-1.5 1-2.4 2.3-2.4s2.2.9 2.2 2.4V16"/></g>',
+  facebook:'<path fill="currentColor" d="M14 8h2.5V5H14c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V8.8c0-.5.2-.8.5-.8z"/>',
+  telegram:'<path d="M21 4L3 11l5 2 2 6 3-4 5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  discord:'<path d="M7 7c3-1.5 7-1.5 10 0 1.5 3 2 6 2 9-1.5 1-3 1.5-4.5 1.8l-.8-1.5c-1 .3-2 .3-3.4 0l-.8 1.5C8 17.5 6.5 17 5 16c0-3 .5-6 2-9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9.5" cy="12" r="1.2" fill="currentColor"/><circle cx="14.5" cy="12" r="1.2" fill="currentColor"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+};
+const svg = n => `<svg viewBox="0 0 24 24" aria-hidden="true">${I[n] || I.link}</svg>`;
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const app = document.getElementById("app");
+
+function itemsOf(card) {
+  if (card.merge) {
+    return card.merge.flatMap(id => {
+      const src = SITE.cards.find(c => c.id === id);
+      return src && src.items ? src.items : [];
+    }).map(it => ({ ...it, name: it.name + (card.suffix || "") }));
+  }
+  return (card.items || []).map(it => ({ ...it, name: it.name + (card.suffix || "") }));
+}
+
+function home() {
+  document.title = SITE.name;
+  app.innerHTML = `<h1>${esc(SITE.heroTitle)}</h1><p class="lead">${esc(SITE.heroText)}</p>
+  <div class="grid" style="padding-bottom:20px">${SITE.cards.map(c => `
+    <a class="card" href="#/${esc(c.id)}" style="--c:${esc(c.color)}">
+      <span class="planet"></span><h2>${esc(c.title)}</h2><p>${esc(c.tagline)}</p>
+    </a>`).join("")}</div>`;
+}
+
+function page(c) {
+  document.title = c.title + " | " + SITE.name;
+  let tiles;
+  if (c.show === "socials") {
+    tiles = SITE.socials.map(s => `<a class="tile" style="--c:${esc(c.color)}" href="${esc(s.url)}" target="_blank" rel="noopener">${svg(s.icon)}<span><b>${esc(s.name)}</b><small>Open ${esc(s.name)}</small></span></a>`).join("");
+  } else {
+    tiles = itemsOf(c).map(it => {
+      const inner = `${it.emoji ? `<span class="emoji" aria-hidden="true">${esc(it.emoji)}</span>` : ""}<span><b>${esc(it.name)}</b>${it.desc ? `<small>${esc(it.desc)}</small>` : ""}</span>`;
+      return it.url ? `<a class="tile" style="--c:${esc(c.color)}" href="${esc(it.url)}" target="_blank" rel="noopener">${inner}</a>`
+                    : `<div class="tile" style="--c:${esc(c.color)}">${inner}</div>`;
+    }).join("");
+  }
+  app.innerHTML = `<a class="back" href="#/">Back to home</a><div class="page"><h1>${esc(c.title)}</h1><p class="lead">${esc(c.tagline)}</p><div class="tiles">${tiles}</div></div>`;
+}
+
+function route() {
+  const id = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+  const c = SITE.cards.find(x => x.id === id);
+  c ? page(c) : home();
+  window.scrollTo(0, 0);
+}
+
+document.getElementById("soc").innerHTML = SITE.socials.map(s =>
+  `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.name)}" title="${esc(s.name)}">${svg(s.icon)}</a>`).join("");
+document.getElementById("copy").textContent = "© " + new Date().getFullYear() + " " + SITE.copyright;
+addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
