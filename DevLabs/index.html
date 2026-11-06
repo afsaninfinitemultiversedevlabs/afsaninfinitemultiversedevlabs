@@ -1,0 +1,1260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090D0B">
+  <meta name="description" content="AIMDL DevLabs — Explore projects, experiments, prototypes, development and creative technology.">
+  <title>DevLabs | AIMDL</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* COMMON AIMDL HEADER */
+    .site-header {
+      width: 100%;
+      min-height: 68px;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(9,13,11,.96);
+      border-bottom: 1px solid rgba(0,184,122,.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      color: #F3F5F2;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      color: #00B87A;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      color: #A8B3AC;
+      letter-spacing: .1px;
+    }
+
+    .menu-toggle {
+      width: 39px;
+      height: 39px;
+      flex: 0 0 39px;
+      display: grid;
+      place-items: center;
+      color: #F3F5F2;
+      background: #17251E;
+      border: 1px solid rgba(0,184,122,.2);
+      border-radius: 9px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    .navigation {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 5%;
+      width: min(230px, 90vw);
+      padding: 12px;
+      flex-direction: column;
+      gap: 4px;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.22);
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.35);
+    }
+
+    .navigation.active { display: flex; }
+
+    .navigation a {
+      color: #F3F5F2;
+      text-decoration: none;
+      padding: 11px 12px;
+      border-radius: 7px;
+      font-size: 13px;
+    }
+
+    .navigation a:hover {
+      background: #17251E;
+      color: #00B87A;
+    }
+
+    /* GLOBAL PAGE */
+    .devlabs-main {
+      padding: 25px 5% 65px;
+    }
+
+    .devlabs-hero {
+      max-width: 760px;
+      margin: 45px auto 35px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #00B87A;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .devlabs-hero h1 {
+      color: #F3F5F2;
+      font-size: clamp(32px, 7vw, 52px);
+      line-height: 1.15;
+      margin: 17px 0;
+    }
+
+    .devlabs-hero h1 span { color: #00B87A; }
+
+    .devlabs-hero p,
+    .section-intro {
+      color: #A8B3AC;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 17px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .hero-btn.primary {
+      color: #090D0B;
+      background: #00B87A;
+      border: 1px solid #00B87A;
+    }
+
+    .hero-btn.secondary {
+      color: #F3F5F2;
+      background: #17251E;
+      border: 1px solid rgba(0,184,122,.2);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,184,122,.16);
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin: 35px 0 65px;
+      flex-wrap: wrap;
+    }
+
+    .stat strong {
+      display: block;
+      color: #00B87A;
+      font-size: 25px;
+    }
+
+    .stat span {
+      color: #A8B3AC;
+      font-size: 10px;
+    }
+
+    .page-section {
+      max-width: 1100px;
+      margin: 0 auto 65px;
+      scroll-margin-top: 95px;
+    }
+
+    .page-section h2 {
+      color: #F3F5F2;
+      font-size: 23px;
+      margin: 0 0 8px;
+    }
+
+    .section-intro {
+      margin: 0 0 22px;
+    }
+
+    .section-topline {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .section-topline i { color: #00B87A; }
+
+    /* SEARCH AND FILTERS */
+    .search-box { margin: 20px 0 15px; }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 16px;
+      color: #F3F5F2;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.22);
+      border-radius: 10px;
+      outline: none;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .search-box input:focus {
+      border-color: #00B87A;
+      box-shadow: 0 0 0 3px rgba(0,184,122,.08);
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      padding: 9px 13px;
+      color: #A8B3AC;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.18);
+      border-radius: 20px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #090D0B;
+      background: #00B87A;
+      border-color: #00B87A;
+    }
+
+    /* LAB CARDS */
+    .labs-grid,
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 13px;
+    }
+
+    .lab-card,
+    .project-card,
+    .content-card {
+      min-width: 0;
+      padding: 19px 16px;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.12);
+      border-radius: 13px;
+      transition: .25s;
+    }
+
+    .lab-card:hover,
+    .project-card:hover,
+    .content-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,184,122,.45);
+      box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    }
+
+    .card-icon {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      color: #00B87A;
+      background: #17251E;
+      border-radius: 10px;
+      margin-bottom: 17px;
+      font-size: 16px;
+    }
+
+    .lab-card h3,
+    .project-card h3,
+    .content-card h3 {
+      color: #F3F5F2;
+      font-size: 14px;
+      margin: 0 0 9px;
+    }
+
+    .lab-card p,
+    .project-card p,
+    .content-card p {
+      color: #A8B3AC;
+      font-size: 11px;
+      line-height: 1.75;
+      margin: 0 0 12px;
+    }
+
+    .card-category {
+      color: #00B87A;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 9px;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00B87A;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .card-link:hover { color: #F3F5F2; }
+
+    .no-results {
+      display: none;
+      color: #A8B3AC;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    /* FEATURED PROJECTS */
+    .project-status {
+      display: inline-block;
+      color: #C6A66B;
+      background: rgba(198,166,107,.09);
+      border: 1px solid rgba(198,166,107,.2);
+      border-radius: 20px;
+      padding: 5px 9px;
+      font-size: 9px;
+      margin-bottom: 12px;
+    }
+
+    .project-number {
+      color: rgba(0,184,122,.65);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* FEATURED BOX */
+    .featured-box {
+      padding: 23px;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.15);
+      border-radius: 14px;
+    }
+
+    .featured-box p {
+      color: #A8B3AC;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* JOURNEY */
+    .journey-list {
+      border-left: 1px solid rgba(0,184,122,.3);
+      margin: 25px 0 0 8px;
+      padding-left: 22px;
+    }
+
+    .journey-item {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .journey-item::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00B87A;
+      box-shadow: 0 0 12px rgba(0,184,122,.35);
+    }
+
+    .journey-item h3 {
+      color: #F3F5F2;
+      font-size: 13px;
+      margin: 0 0 7px;
+    }
+
+    .journey-item p {
+      color: #A8B3AC;
+      font-size: 11px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* CTA */
+    .devlabs-cta {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 38px 20px;
+      background: #101D17;
+      border: 1px solid rgba(0,184,122,.15);
+      border-radius: 15px;
+    }
+
+    .devlabs-cta h2 {
+      color: #F3F5F2;
+      font-size: 24px;
+      margin: 13px 0;
+    }
+
+    .devlabs-cta p {
+      color: #A8B3AC;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      padding: 35px 6% 22px;
+      background: #070A08;
+      border-top: 1px solid rgba(0,184,122,.15);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .footer-brand-icon {
+      color: #00B87A;
+      font-size: 23px;
+      padding-top: 2px;
+    }
+
+    .footer-brand h2 {
+      color: #F3F5F2;
+      font-size: 19px;
+      margin: 0 0 4px;
+    }
+
+    .footer-brand p {
+      color: #A8B3AC;
+      font-size: 10px;
+      margin: 0;
+    }
+
+    .footer-heading {
+      color: #F3F5F2;
+      font-size: 12px;
+      margin: 22px 0 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .footer-links a {
+      color: #A8B3AC;
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    .footer-links a:hover { color: #00B87A; }
+
+    .footer-socials {
+      display: grid;
+      grid-template-columns: repeat(3, 35px);
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .footer-socials a {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: #A8B3AC;
+      background: #17251E;
+      border: 1px solid rgba(0,184,122,.15);
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .footer-socials a:hover,
+    .footer-socials a.clicked {
+      color: #090D0B;
+      background: #00B87A;
+      box-shadow: 0 0 16px rgba(0,184,122,.35);
+    }
+
+    .footer-tagline {
+      text-align: center;
+      color: #A8B3AC;
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin: 28px 0 14px;
+    }
+
+    .footer-bottom {
+      padding-top: 15px;
+      border-top: 1px solid rgba(168,179,172,.12);
+      text-align: center;
+      color: #A8B3AC;
+      font-size: 9px;
+      line-height: 1.8;
+    }
+
+    .footer-bottom p { margin: 3px 0; }
+
+    /* RESPONSIVE */
+    @media (min-width: 700px) {
+      .labs-grid,
+      .content-grid {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 17px;
+      }
+
+      .devlabs-main { padding-left: 7%; padding-right: 7%; }
+
+      .site-footer { padding-left: 8%; padding-right: 8%; }
+    }
+
+    @media (max-width: 420px) {
+      .labs-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .devlabs-main {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .stats-row { gap: 22px; }
+
+      .devlabs-hero h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- COMMON AIMDL HEADER -->
+  <header class="site-header">
+    <a class="brand" href="../index.html">
+      <span class="brand-icon">∞</span>
+      <span class="brand-copy">
+        <span class="brand-name">AIMDL</span>
+        <span class="brand-subtitle">Afsan Infinite Multiverse DevLabs</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="navigation" id="navigation">
+      <a href="../index.html">Home</a>
+      <a href="../Afsan/index.html">Afsan</a>
+      <a href="../Infinite/index.html">Infinite</a>
+      <a href="../Multiverse/index.html">Multiverse</a>
+      <a href="index.html">DevLabs</a>
+      <a href="../Ventures/index.html">Ventures</a>
+    </nav>
+  </header>
+
+  <main class="devlabs-main">
+
+    <!-- 1. HERO -->
+    <section class="devlabs-hero">
+      <span class="eyebrow">The Creation Zone</span>
+
+      <h1>Ideas Become<br><span>Reality.</span></h1>
+
+      <p>
+        Welcome to AIMDL DevLabs — the place where ideas are transformed
+        into digital creations. Explore development, experiments,
+        prototypes, research and creative technology.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#labs" class="hero-btn primary">
+          <i class="fa-solid fa-flask"></i> Explore Labs
+        </a>
+
+        <a href="#projects" class="hero-btn secondary">
+          <i class="fa-solid fa-rocket"></i> View Projects
+        </a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <strong>10</strong>
+          <span>Creative Labs</span>
+        </div>
+
+        <div class="stat">
+          <strong>∞</strong>
+          <span>Possibilities</span>
+        </div>
+
+        <div class="stat">
+          <strong>01</strong>
+          <span>Creation Hub</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. EXPLORE THE LABS -->
+    <section class="page-section" id="labs">
+      <div class="section-topline">
+        <i class="fa-solid fa-layer-group"></i>
+        <span class="eyebrow">Explore the ecosystem</span>
+      </div>
+
+      <h2>Explore The Labs</h2>
+
+      <p class="section-intro">
+        Every big creation starts with an experiment.
+        Choose a lab and discover what can be built.
+      </p>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="labSearch"
+          placeholder="Search labs..."
+          aria-label="Search labs"
+        >
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Labs</button>
+        <button class="filter-btn" data-filter="development">Development</button>
+        <button class="filter-btn" data-filter="creative">Creative</button>
+        <button class="filter-btn" data-filter="security">Security</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+      </div>
+
+      <div class="labs-grid" id="labsGrid">
+
+        <article class="lab-card" data-category="development" data-name="Projects Lab">
+          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+          <span class="card-category">Development</span>
+          <h3>Projects Lab</h3>
+          <p>Experiments, prototypes and original digital creations.</p>
+          <a class="card-link" href="#projects">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="development" data-name="App Lab">
+          <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <span class="card-category">Development</span>
+          <h3>App Lab</h3>
+          <p>Mobile applications, useful tools and new app experiences.</p>
+          <a class="card-link" href="#projects">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="development" data-name="Game Lab">
+          <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <span class="card-category">Development</span>
+          <h3>Game Lab</h3>
+          <p>Game ideas, interactive worlds and gameplay systems.</p>
+          <a class="card-link" href="#projects">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="development" data-name="Web Lab">
+          <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          <span class="card-category">Development</span>
+          <h3>Web Lab</h3>
+          <p>Websites, web applications and digital experiences.</p>
+          <a class="card-link" href="#projects">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="creative" data-name="3D Animation Lab">
+          <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
+          <span class="card-category">Creative</span>
+          <h3>3D Animation Lab</h3>
+          <p>3D modeling, animation, environments and digital worlds.</p>
+          <a class="card-link" href="#experiments">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="creative" data-name="VFX Motion Lab">
+          <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+          <span class="card-category">Creative</span>
+          <h3>VFX &amp; Motion Lab</h3>
+          <p>Visual effects, CGI, video editing and motion graphics.</p>
+          <a class="card-link" href="#experiments">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="creative" data-name="Creative Lab">
+          <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+          <span class="card-category">Creative</span>
+          <h3>Creative Lab</h3>
+          <p>Graphic design, digital art and visual concepts.</p>
+          <a class="card-link" href="#experiments">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="research" data-name="R&D Lab">
+          <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
+          <span class="card-category">Research</span>
+          <h3>R&amp;D Lab</h3>
+          <p>Research, discovery and experimental technology.</p>
+          <a class="card-link" href="#research">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="security" data-name="Ethical Hacking Lab">
+          <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+          <span class="card-category">Security</span>
+          <h3>Ethical Hacking Lab</h3>
+          <p>Authorized security testing, penetration testing, Linux and Termux learning in legal practice environments.</p>
+          <a class="card-link" href="#research">Explore Lab →</a>
+        </article>
+
+        <article class="lab-card" data-category="security" data-name="Cybersecurity Lab">
+          <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span class="card-category">Security</span>
+          <h3>Cybersecurity Lab</h3>
+          <p>Network, application, cloud and digital security fundamentals.</p>
+          <a class="card-link" href="#research">Explore Lab →</a>
+        </article>
+
+      </div>
+
+      <p class="no-results" id="noResults">
+        No matching labs found. Try another search.
+      </p>
+    </section>
+
+    <!-- 3. FEATURED PROJECTS -->
+    <section class="page-section" id="projects">
+      <div class="section-topline">
+        <i class="fa-solid fa-rocket"></i>
+        <span class="eyebrow">What we're building</span>
+      </div>
+
+      <h2>Featured Projects</h2>
+
+      <p class="section-intro">
+        A collection of projects and creations from across the DevLabs ecosystem.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 01</div>
+          <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+          <span class="project-status">In Development</span>
+          <h3>Social App Project</h3>
+          <p>Exploring the development of a social platform with profiles, feeds and interactive features.</p>
+          <a class="card-link" href="#journey">View Journey →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 02</div>
+          <div class="card-icon"><i class="fa-solid fa-ghost"></i></div>
+          <span class="project-status">Concept Stage</span>
+          <h3>Night Shift</h3>
+          <p>A horror game concept exploring atmosphere, storytelling and interactive gameplay.</p>
+          <a class="card-link" href="#prototypes">Explore Concept →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">PROJECT 03</div>
+          <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+          <span class="project-status">Building</span>
+          <h3>AIMDL Website</h3>
+          <p>The central digital ecosystem connecting the five AIMDL divisions.</p>
+          <a class="card-link" href="../index.html">Explore AIMDL →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. LATEST EXPERIMENTS -->
+    <section class="page-section" id="experiments">
+      <div class="section-topline">
+        <i class="fa-solid fa-vial"></i>
+        <span class="eyebrow">Test new possibilities</span>
+      </div>
+
+      <h2>Latest Experiments</h2>
+
+      <p class="section-intro">
+        Small experiments, new techniques and creative tests that can lead to bigger things.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Coding Experiments</h3>
+          <p>Testing programming concepts, interfaces, logic and small digital tools.</p>
+          <span class="card-category">Development</span>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
+          <h3>3D Experiments</h3>
+          <p>Exploring modeling, lighting, materials, animation and 3D environments.</p>
+          <span class="card-category">Creative</span>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>Visual Experiments</h3>
+          <p>Testing motion graphics, editing styles, effects and visual storytelling.</p>
+          <span class="card-category">Creative</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 5. BUILD IN PUBLIC -->
+    <section class="page-section" id="build">
+      <div class="section-topline">
+        <i class="fa-solid fa-hammer"></i>
+        <span class="eyebrow">Behind the creation</span>
+      </div>
+
+      <h2>Build in Public</h2>
+
+      <p class="section-intro">
+        Follow the process behind projects — from the first idea to development, challenges and improvements.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3>Development Logs</h3>
+          <p>Project updates, development stages and progress reports.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
+          <h3>Challenges & Fixes</h3>
+          <p>Problems encountered, debugging attempts and lessons learned.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-play"></i></div>
+          <h3>Behind the Build</h3>
+          <p>A look at the tools, workflow and creative process behind each project.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 6. PROTOTYPES -->
+    <section class="page-section" id="prototypes">
+      <div class="section-topline">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span class="eyebrow">Ideas in progress</span>
+      </div>
+
+      <h2>Prototypes &amp; Concepts</h2>
+
+      <p class="section-intro">
+        Not every idea starts as a finished product. This space is for early concepts and experimental prototypes.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3>App Concepts</h3>
+          <p>Early application ideas, interface concepts and feature experiments.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <h3>Game Concepts</h3>
+          <p>Gameplay ideas, world concepts, mechanics and early game prototypes.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Experimental Ideas</h3>
+          <p>Unusual digital concepts and possible future creations.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 7. TOOLS AND TECHNOLOGIES -->
+    <section class="page-section" id="tools">
+      <div class="section-topline">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span class="eyebrow">The creation toolkit</span>
+      </div>
+
+      <h2>Tools &amp; Technologies</h2>
+
+      <p class="section-intro">
+        Explore the software, programming languages, engines and technologies used across different projects.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Programming</h3>
+          <p>C, C++, Python, JavaScript and other programming technologies.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <h3>Game Engines</h3>
+          <p>Game development engines, frameworks and interactive tools.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+          <h3>3D &amp; Creative Software</h3>
+          <p>3D modeling, animation, video editing and design applications.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-brands fa-linux"></i></div>
+          <h3>Linux &amp; Termux</h3>
+          <p>Command-line environments, Linux tools and authorized security practice.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Cloud &amp; Web Tools</h3>
+          <p>Web technologies, hosting, development environments and cloud platforms.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>AI Tools</h3>
+          <p>Artificial intelligence tools and emerging creative technologies.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 8. RESEARCH -->
+    <section class="page-section" id="research">
+      <div class="section-topline">
+        <i class="fa-solid fa-microscope"></i>
+        <span class="eyebrow">Explore the unknown</span>
+      </div>
+
+      <h2>Research &amp; Innovation</h2>
+
+      <p class="section-intro">
+        Explore technical concepts, investigate new possibilities and learn through experimentation.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Technology Research</h3>
+          <p>Understanding emerging technologies and exploring how they work.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Security Research</h3>
+          <p>Learning security principles and testing only in authorized environments.</p>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Experimental Research</h3>
+          <p>Testing ideas, documenting observations and exploring possible solutions.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 9. DEVELOPMENT JOURNEY -->
+    <section class="page-section" id="journey">
+      <div class="section-topline">
+        <i class="fa-solid fa-route"></i>
+        <span class="eyebrow">The journey of creation</span>
+      </div>
+
+      <h2>Development Journey</h2>
+
+      <p class="section-intro">
+        A transparent look at the process of learning, building and improving.
+      </p>
+
+      <div class="featured-box">
+        <div class="journey-list">
+
+          <div class="journey-item">
+            <h3>01 — Idea &amp; Planning</h3>
+            <p>Understanding the problem, imagining possibilities and planning the project.</p>
+          </div>
+
+          <div class="journey-item">
+            <h3>02 — Learning &amp; Research</h3>
+            <p>Exploring tools, technologies and concepts needed for the build.</p>
+          </div>
+
+          <div class="journey-item">
+            <h3>03 — Development &amp; Experiments</h3>
+            <p>Creating prototypes, testing features and improving the experience.</p>
+          </div>
+
+          <div class="journey-item">
+            <h3>04 — Testing &amp; Improvement</h3>
+            <p>Finding issues, refining details and learning from every iteration.</p>
+          </div>
+
+          <div class="journey-item">
+            <h3>05 — Launch &amp; Beyond</h3>
+            <p>Sharing completed work and exploring what can be created next.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FUTURE PROJECTS -->
+    <section class="page-section" id="future">
+      <div class="section-topline">
+        <i class="fa-solid fa-infinity"></i>
+        <span class="eyebrow">What's coming next</span>
+      </div>
+
+      <h2>Future Projects</h2>
+
+      <p class="section-intro">
+        A glimpse into the kinds of creations that may become part of the DevLabs ecosystem.
+      </p>
+
+      <div class="content-grid">
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Next-Gen Applications</h3>
+          <p>Useful digital products and new application experiences.</p>
+          <span class="card-category">Future Exploration</span>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+          <h3>Original Games</h3>
+          <p>Unique game worlds, stories and interactive experiences.</p>
+          <span class="card-category">Future Exploration</span>
+        </article>
+
+        <article class="content-card">
+          <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>AI-Powered Creations</h3>
+          <p>Exploring intelligent tools, automation and AI-based products.</p>
+          <span class="card-category">Future Exploration</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 11. EXPLORE AIMDL -->
+    <section class="devlabs-cta" id="explore-aimdl">
+      <span class="eyebrow">One ecosystem. Infinite possibilities.</span>
+
+      <h2>Build Beyond Limits.</h2>
+
+      <p>
+        DevLabs is where ideas become projects, experiments become discoveries
+        and creativity becomes reality.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="../Multiverse/index.html" class="hero-btn primary">
+          Explore Multiverse <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <a href="../Ventures/index.html" class="hero-btn secondary">
+          Discover Ventures
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- COMMON AIMDL FOOTER -->
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <span class="footer-brand-icon">∞</span>
+      <div>
+        <h2>AIMDL</h2>
+        <p>Afsan Infinite Multiverse DevLabs</p>
+      </div>
+    </div>
+
+    <h3 class="footer-heading">Explore</h3>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="../index.html">Home</a>
+      <a href="../Afsan/index.html">Afsan</a>
+      <a href="../Infinite/index.html">Infinite</a>
+      <a href="../Multiverse/index.html">Multiverse</a>
+      <a href="index.html">DevLabs</a>
+      <a href="../Ventures/index.html">Ventures</a>
+    </nav>
+
+    <h3 class="footer-heading">Connect With Me</h3>
+
+    <div class="footer-socials">
+      <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://reddit.com/" target="_blank" rel="noopener" aria-label="Reddit"><i class="fa-brands fa-reddit-alien"></i></a>
+      <a href="https://telegram.org/" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+      <a href="https://discord.com/" target="_blank" rel="noopener" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+
+    <p class="footer-tagline">EXPLORE • EXPERIMENT • CREATE</p>
+
+    <div class="footer-bottom">
+      <p>© <span class="current-year"></span> Afsan Infinite Multiverse DevLabs - AIMDL. All rights reserved.</p>
+      <p>One Identity. One Ecosystem. Infinite Possibilities.</p>
+    </div>
+
+  </footer>
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.getElementById('menuToggle');
+    const navigation = document.getElementById('navigation');
+
+    menuToggle.addEventListener('click', () => {
+      navigation.classList.toggle('active');
+
+      const isOpen = navigation.classList.contains('active');
+
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    navigation.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    // LAB SEARCH AND FILTER
+    const searchInput = document.getElementById('labSearch');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const labCards = document.querySelectorAll('.lab-card');
+    const noResults = document.getElementById('noResults');
+
+    let activeFilter = 'all';
+
+    function filterLabs() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      labCards.forEach(card => {
+        const cardName = card.dataset.name.toLowerCase();
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesSearch =
+          cardName.includes(searchTerm) ||
+          cardText.includes(searchTerm);
+
+        const matchesCategory =
+          activeFilter === 'all' ||
+          card.dataset.category === activeFilter;
+
+        const show = matchesSearch && matchesCategory;
+
+        card.style.display = show ? '' : 'none';
+
+        if (show) visibleCount++;
+      });
+
+      noResults.style.display =
+        visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterLabs);
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        button.classList.add('active');
+        activeFilter = button.dataset.filter;
+
+        filterLabs();
+      });
+    });
+
+    // FOOTER YEAR
+    document.querySelectorAll('.current-year').forEach(el => {
+      el.textContent = new Date().getFullYear();
+    });
+
+    // SOCIAL CLICK FEEDBACK
+    document.querySelectorAll('.footer-socials a').forEach(link => {
+      link.addEventListener('click', () => {
+        link.classList.add('clicked');
+
+        setTimeout(() => {
+          link.classList.remove('clicked');
+        }, 350);
+      });
+    });
+  </script>
+
+</body>
+</html>
