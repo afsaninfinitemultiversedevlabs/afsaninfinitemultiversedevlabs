@@ -1,0 +1,768 @@
+
+/* =========================================
+   AIMDL — Afsan Infinite Multiverse DevLabs
+   Premium Green Glassmorphism Design
+========================================= */
+
+/* 1. ROOT VARIABLES */
+:root {
+    --obsidian: #090D0B;
+    --forest: #101D17;
+    --emerald: #00B87A;
+    --jade: #087F5B;
+    --ivory: #F3F5F2;
+    --silver: #A8B3AC;
+    --glass: #17251E;
+    --gold: #C6A66B;
+
+    --border: rgba(168, 179, 172, 0.13);
+    --glow: rgba(0, 184, 122, 0.18);
+    --transition: 0.3s ease;
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--obsidian);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+/* 3. HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(9, 13, 11, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.logo-symbol {
+    font-size: 35px;
+    line-height: 1;
+    color: var(--emerald);
+    text-shadow: 0 0 18px var(--glow);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-text strong {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.logo-text small {
+    color: var(--silver);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.navigation a {
+    color: var(--silver);
+    font-size: 13px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    color: var(--emerald);
+}
+
+.menu-toggle {
+    display: none;
+    border: 1px solid var(--border);
+    background: var(--glass);
+    color: var(--ivory);
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+/* 4. HERO SECTION */
+.hero {
+    min-height: 660px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 100px 20px;
+    background:
+        radial-gradient(ellipse at 50% 35%,
+        rgba(0, 184, 122, 0.10), transparent 48%),
+        linear-gradient(180deg, var(--obsidian), var(--forest));
+}
+
+.hero-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: var(--emerald);
+    filter: blur(170px);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+}
+
+.hero-symbol {
+    font-size: 76px;
+    line-height: 1.2;
+    color: var(--emerald);
+    text-shadow: 0 0 35px rgba(0, 184, 122, 0.35);
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--emerald);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 6vw, 66px);
+    line-height: 1.13;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    color: var(--emerald);
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--silver);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    min-height: 48px;
+    padding: 13px 25px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--emerald);
+    color: var(--obsidian);
+    border: 1px solid var(--emerald);
+}
+
+.btn-primary:hover {
+    background: #00D18B;
+    box-shadow: 0 0 25px var(--glow);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    color: var(--ivory);
+    border: 1px solid rgba(0, 184, 122, 0.45);
+    background: rgba(23, 37, 30, 0.65);
+}
+
+.btn-secondary:hover {
+    background: var(--glass);
+    border-color: var(--emerald);
+    transform: translateY(-3px);
+}
+
+.hero-caption {
+    margin-top: 32px;
+    color: var(--silver);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* 5. GENERAL SECTIONS */
+.section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-size: clamp(29px, 4vw, 43px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--silver);
+    font-size: 14px;
+}
+
+/* 6. ECOSYSTEM */
+.ecosystem {
+    background: var(--obsidian);
+}
+
+.division-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.division-card {
+    position: relative;
+    min-height: 230px;
+    padding: 27px 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        rgba(23, 37, 30, 0.95),
+        rgba(16, 29, 23, 0.75)
+    );
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.division-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(0, 184, 122, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25),
+                0 0 25px rgba(0, 184, 122, 0.08);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: rgba(0, 184, 122, 0.10);
+    color: var(--emerald);
+    font-size: 22px;
+    margin-bottom: 23px;
+}
+
+.card-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgba(168, 179, 172, 0.35);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.division-card h3 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.division-card p {
+    color: var(--silver);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--emerald);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* 7. LATEST PROJECTS & VIDEOS */
+.latest-section {
+    background: var(--forest);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.content-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(9, 13, 11, 0.65);
+    transition: var(--transition);
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 184, 122, 0.45);
+}
+
+.content-visual {
+    min-height: 210px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center,
+        rgba(0, 184, 122, 0.20), transparent 65%),
+        var(--glass);
+}
+
+.content-visual i {
+    color: var(--emerald);
+    font-size: 55px;
+    filter: drop-shadow(0 0 18px rgba(0, 184, 122, 0.35));
+}
+
+.project-visual {
+    background:
+        radial-gradient(circle at 70% 30%,
+        rgba(0, 184, 122, 0.20), transparent 55%),
+        var(--glass);
+}
+
+.video-visual {
+    background:
+        radial-gradient(circle at 30% 70%,
+        rgba(198, 166, 107, 0.13), transparent 55%),
+        var(--glass);
+}
+
+.content-visual.second {
+    background:
+        radial-gradient(circle at center,
+        rgba(8, 127, 91, 0.22), transparent 65%),
+        var(--glass);
+}
+
+.content-info {
+    padding: 23px;
+}
+
+.content-tag {
+    display: inline-block;
+    color: var(--emerald);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.content-info h3 {
+    font-size: 19px;
+    margin-bottom: 9px;
+}
+
+.content-info p {
+    color: var(--silver);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 6px 11px;
+    border-radius: 30px;
+    color: var(--gold);
+    background: rgba(198, 166, 107, 0.09);
+    border: 1px solid rgba(198, 166, 107, 0.2);
+    font-size: 10px;
+}
+
+/* 8. BRAND STATEMENT */
+.brand-statement {
+    position: relative;
+    padding: 95px 20px;
+    text-align: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center,
+        rgba(0, 184, 122, 0.12), transparent 65%),
+        var(--obsidian);
+}
+
+.brand-statement h2 {
+    font-size: clamp(27px, 4vw, 42px);
+    margin-bottom: 18px;
+}
+
+.brand-statement h2 span {
+    color: var(--emerald);
+}
+
+.brand-statement p {
+    color: var(--silver);
+    font-size: 14px;
+}
+
+/* 9. FOOTER */
+.footer {
+    padding: 65px 0 22px;
+    background: #070A08;
+    border-top: 1px solid var(--border);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    padding-bottom: 45px;
+}
+
+.footer-brand {
+    max-width: 330px;
+}
+
+.footer-symbol {
+    color: var(--emerald);
+    font-size: 35px;
+    text-shadow: 0 0 20px var(--glow);
+}
+
+.footer-brand h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 8px 0;
+}
+
+.footer-brand p {
+    color: var(--silver);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.footer h4 {
+    font-size: 13px;
+    margin-bottom: 19px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: var(--silver);
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--emerald);
+    padding-left: 4px;
+}
+
+/* 10. SOCIAL ICONS */
+.footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.footer-socials a {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(0, 184, 122, 0.2);
+    border-radius: 12px;
+    background: rgba(23, 37, 30, 0.8);
+    color: var(--silver);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    color: var(--emerald);
+    border-color: var(--emerald);
+    background: rgba(0, 184, 122, 0.10);
+    box-shadow: 0 0 18px rgba(0, 184, 122, 0.15);
+    transform: translateY(-4px);
+}
+
+.footer-socials a.clicked {
+    animation: socialPulse 0.55s ease;
+}
+
+@keyframes socialPulse {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 184, 122, 0);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 184, 122, 0.65);
+    }
+    100% {
+        box-shadow: 0 0 0 rgba(0, 184, 122, 0);
+    }
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--silver);
+    font-size: 11px;
+}
+
+/* 11. ACCESSIBILITY */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--emerald);
+    outline-offset: 4px;
+}
+
+/* 12. TABLET RESPONSIVE */
+@media (max-width: 1000px) {
+    .division-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .navigation {
+        gap: 17px;
+    }
+
+    .navigation a {
+        font-size: 12px;
+    }
+}
+
+/* 13. MOBILE RESPONSIVE */
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 68px;
+    }
+
+    .logo-symbol {
+        font-size: 30px;
+    }
+
+    .logo-text strong {
+        font-size: 17px;
+    }
+
+    .logo-text small {
+        font-size: 8px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 18px 5% 24px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(9, 13, 11, 0.98);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navigation.active {
+        display: flex;
+    }
+
+    .navigation a {
+        padding: 13px 5px;
+        font-size: 14px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .hero {
+        min-height: 590px;
+        padding: 80px 20px;
+    }
+
+    .hero-symbol {
+        font-size: 62px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .division-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .division-card {
+        min-height: 220px;
+        padding: 20px 15px;
+    }
+
+    .division-card h3 {
+        font-size: 16px;
+    }
+
+    .division-card p {
+        font-size: 11px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-visual {
+        min-height: 180px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* 14. SMALL PHONES */
+@media (max-width: 380px) {
+    .division-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .division-card {
+        min-height: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+}
+
+/* 15. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
