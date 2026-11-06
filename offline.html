@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#090D0B">
+
+    <title>AIMDL | Offline</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #090D0B;
+            color: #F3F5F2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        .logo {
+            color: #00B87A;
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #A8B3AC;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        button {
+            background: #00B87A;
+            color: #090D0B;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">∞</div>
+
+        <h1>You're Offline</h1>
+
+        <p>
+            Looks like your internet connection
+            is unavailable right now.
+            Reconnect and explore AIMDL again.
+        </p>
+
+        <button onclick="location.reload()">
+            Try Again
+        </button>
+
+    </div>
+
+</body>
+</html>

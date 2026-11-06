@@ -1,0 +1,1317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#090D0B">
+
+    <meta name="theme-color" content="#090D0B">
+    <meta name="description" content="AIMDL - Afsan Infinite Multiverse DevLabs. One Identity. Infinite Possibilities.">
+
+    <title>AIMDL | Afsan Infinite Multiverse DevLabs</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- HOMEPAGE UPGRADE STYLES -->
+    <style>
+        :root {
+            --home-bg: #090D0B;
+            --home-forest: #101D17;
+            --home-emerald: #00B87A;
+            --home-jade: #087F5B;
+            --home-ivory: #F3F5F2;
+            --home-muted: #A8B3AC;
+            --home-glass: #17251E;
+            --home-gold: #C6A66B;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .home-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 48px;
+        }
+
+        .home-heading .eyebrow {
+            color: var(--home-emerald);
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .home-heading h2 {
+            color: var(--home-ivory);
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .home-heading h2 span {
+            color: var(--home-emerald);
+        }
+
+        .home-heading p {
+            color: var(--home-muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-top: 70px;
+            padding-bottom: 80px;
+        }
+
+        .hero-symbol {
+            font-size: clamp(120px, 25vw, 220px);
+            line-height: 1;
+            font-weight: 400;
+            color: var(--home-emerald);
+            text-shadow:
+                0 0 15px rgba(0,184,122,.65),
+                0 0 45px rgba(0,184,122,.45),
+                0 0 100px rgba(0,184,122,.25);
+            margin-bottom: 25px;
+            animation: infinityGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes infinityGlow {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow:
+                    0 0 15px rgba(0,184,122,.55),
+                    0 0 45px rgba(0,184,122,.35),
+                    0 0 90px rgba(0,184,122,.2);
+            }
+            50% {
+                transform: scale(1.035);
+                text-shadow:
+                    0 0 25px rgba(0,184,122,.8),
+                    0 0 65px rgba(0,184,122,.55),
+                    0 0 120px rgba(0,184,122,.3);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 76px);
+            line-height: 1.12;
+            color: var(--home-ivory);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: var(--home-emerald);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            line-height: 1.9;
+        }
+
+        .hero-caption {
+            margin-top: 38px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .hero-caption span {
+            color: var(--home-emerald);
+        }
+
+        /* SIX DIVISIONS */
+
+        .division-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .division-card {
+            min-height: 285px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            background: linear-gradient(145deg, rgba(23,37,30,.96), rgba(16,29,23,.85));
+            border: 1px solid rgba(0,184,122,.16);
+            border-radius: 20px;
+            transition: .35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .division-card::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: -70px;
+            top: -70px;
+            background: rgba(0,184,122,.10);
+            filter: blur(35px);
+            border-radius: 50%;
+        }
+
+        .division-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0,184,122,.65);
+            box-shadow: 0 15px 45px rgba(0,184,122,.10);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px;
+            color: var(--home-emerald);
+            background: rgba(0,184,122,.12);
+            font-size: 23px;
+            margin-bottom: 24px;
+        }
+
+        .card-number {
+            color: var(--home-emerald);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .division-card h3 {
+            color: var(--home-ivory);
+            font-size: 25px;
+            margin: 12px 0;
+        }
+
+        .division-card p {
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            margin-top: auto;
+            color: var(--home-emerald);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .division-card.future-card .card-icon {
+            color: var(--home-gold);
+            background: rgba(198,166,107,.12);
+        }
+
+        .division-card.future-card .card-number,
+        .division-card.future-card .card-link {
+            color: var(--home-gold);
+        }
+
+        /* CREATOR INTRO */
+
+        .creator-panel {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 45px;
+            align-items: center;
+            padding: 45px;
+            background: linear-gradient(135deg, #17251E, #101D17);
+            border: 1px solid rgba(0,184,122,.2);
+            border-radius: 24px;
+        }
+
+        .creator-symbol {
+            min-height: 250px;
+            display: grid;
+            place-items: center;
+            border-radius: 20px;
+            background:
+                radial-gradient(circle, rgba(0,184,122,.22), transparent 65%),
+                #101D17;
+            color: var(--home-emerald);
+            font-size: 130px;
+            text-shadow: 0 0 50px rgba(0,184,122,.45);
+        }
+
+        .creator-copy .eyebrow {
+            color: var(--home-emerald);
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .creator-copy h2 {
+            color: var(--home-ivory);
+            font-size: clamp(30px, 5vw, 43px);
+            margin: 15px 0;
+        }
+
+        .creator-copy h2 span {
+            color: var(--home-emerald);
+        }
+
+        .creator-copy p {
+            color: var(--home-muted);
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 22px;
+            border-radius: 9px;
+            background: var(--home-emerald);
+            color: #07130D;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            margin-top: 18px;
+            transition: .3s ease;
+        }
+
+        .home-btn:hover {
+            background: #20D99A;
+            transform: translateY(-3px);
+        }
+
+        /* FEATURED UNIVERSES */
+
+        .universe-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .universe-feature {
+            text-decoration: none;
+            color: inherit;
+            background: var(--home-glass);
+            border: 1px solid rgba(0,184,122,.15);
+            border-radius: 17px;
+            padding: 25px 18px;
+            text-align: center;
+            transition: .3s ease;
+        }
+
+        .universe-feature:hover {
+            transform: translateY(-6px);
+            border-color: var(--home-emerald);
+        }
+
+        .universe-feature i {
+            color: var(--home-emerald);
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .universe-feature h3 {
+            color: var(--home-ivory);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .universe-feature p {
+            color: var(--home-muted);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* PROJECTS AND VIDEOS */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .content-card {
+            overflow: hidden;
+            border-radius: 19px;
+            background: var(--home-glass);
+            border: 1px solid rgba(0,184,122,.15);
+            transition: .3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,184,122,.5);
+        }
+
+        .content-visual {
+            min-height: 190px;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle, rgba(0,184,122,.22), transparent 60%),
+                #101D17;
+        }
+
+        .content-visual i {
+            color: var(--home-emerald);
+            font-size: 65px;
+        }
+
+        .content-visual.second {
+            background:
+                radial-gradient(circle, rgba(198,166,107,.15), transparent 60%),
+                #101D17;
+        }
+
+        .content-info {
+            padding: 25px;
+        }
+
+        .content-tag {
+            color: var(--home-emerald);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .content-info h3 {
+            color: var(--home-ivory);
+            font-size: 20px;
+            margin: 12px 0;
+        }
+
+        .content-info p {
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 17px;
+            padding: 7px 11px;
+            border-radius: 5px;
+            color: var(--home-emerald);
+            background: rgba(0,184,122,.10);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* HIGHLIGHT PANELS */
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .highlight-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: linear-gradient(140deg, #17251E, #101D17);
+            border: 1px solid rgba(0,184,122,.18);
+        }
+
+        .highlight-card .highlight-icon {
+            color: var(--home-emerald);
+            font-size: 35px;
+            margin-bottom: 22px;
+        }
+
+        .highlight-card h3 {
+            color: var(--home-ivory);
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .highlight-card p {
+            color: var(--home-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .highlight-card a {
+            display: inline-block;
+            color: var(--home-emerald);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            margin-top: 20px;
+        }
+
+        .planned-label {
+            display: inline-block;
+            color: var(--home-gold);
+            background: rgba(198,166,107,.1);
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        /* OTHERS */
+
+        .others-panel {
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(0,184,122,.2);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(0,184,122,.12), transparent 60%),
+                #101D17;
+        }
+
+        .others-panel i {
+            color: var(--home-emerald);
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .others-panel h3 {
+            color: var(--home-ivory);
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .others-panel p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--home-muted);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        /* VISION */
+
+        .brand-statement {
+            padding: 110px 0;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at center, rgba(0,184,122,.13), transparent 65%),
+                #090D0B;
+        }
+
+        .brand-statement h2 {
+            color: var(--home-ivory);
+            font-size: clamp(32px, 6vw, 58px);
+            line-height: 1.3;
+            margin: 22px 0;
+        }
+
+        .brand-statement h2 span {
+            color: var(--home-emerald);
+        }
+
+        .brand-statement p {
+            color: var(--home-muted);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .division-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .universe-feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .creator-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .creator-symbol {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .home-section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding-top: 75px;
+                padding-bottom: 75px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-caption {
+                letter-spacing: 2px;
+                font-size: 10px;
+            }
+
+            .division-grid,
+            .content-grid,
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .division-card {
+                min-height: 255px;
+            }
+
+            .creator-panel {
+                padding: 22px;
+                gap: 25px;
+            }
+
+            .creator-symbol {
+                min-height: 160px;
+                font-size: 95px;
+            }
+
+            .universe-feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .universe-feature {
+                padding: 20px 12px;
+            }
+
+            .highlight-card,
+            .others-panel {
+                padding: 25px;
+            }
+
+            .brand-statement {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-symbol">∞</span>
+            <span>
+                <strong>AIMDL</strong>
+                <small>Afsan Infinite Multiverse DevLabs</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+            aria-label="Open navigation"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="navigation" id="navigation">
+            <a href="#home">Home</a>
+            <a href="Afsan/index.html">Afsan</a>
+            <a href="Infinite/index.html">Infinite</a>
+            <a href="Multiverse/index.html">Multiverse</a>
+            <a href="DevLabs/index.html">DevLabs</a>
+            <a href="Ventures/index.html">Ventures</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<!-- 01. HERO -->
+<section class="hero" id="home">
+    <div class="hero-glow"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-symbol">∞</div>
+
+        <span class="eyebrow">WELCOME TO AIMDL</span>
+
+        <h1>
+            One Identity.<br>
+            <span>Infinite Possibilities.</span>
+        </h1>
+
+        <p class="hero-description">
+            Afsan Infinite Multiverse DevLabs is an expanding ecosystem
+            of identity, ideas, technology, creativity and innovation.
+            One place to explore possibilities, experiment with ideas
+            and create beyond boundaries.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#ecosystem" class="btn btn-primary">
+                Explore Ecosystem
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#vision" class="btn btn-secondary">
+                Discover AIMDL
+            </a>
+        </div>
+
+        <div class="hero-caption">
+            EXPLORE <span>•</span> EXPERIMENT <span>•</span> CREATE
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 02. SIX MAIN DIVISIONS -->
+<section class="section ecosystem home-section" id="ecosystem">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">THE AIMDL ECOSYSTEM</span>
+
+            <h2>
+                Six Divisions.<br>
+                <span>One Vision.</span>
+            </h2>
+
+            <p>
+                Six different spaces, each with its own purpose.
+                Together, they form one connected ecosystem.
+            </p>
+        </div>
+
+        <div class="division-grid">
+
+            <!-- AFSAN -->
+            <a href="Afsan/index.html" class="division-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+
+                <span class="card-number">01 / IDENTITY</span>
+                <h3>Afsan</h3>
+
+                <p>
+                    The personal identity hub. Discover the creator,
+                    journey, YouTube channels, social platforms and portfolio.
+                </p>
+
+                <span class="card-link">
+                    Explore <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+
+            <!-- INFINITE -->
+            <a href="Infinite/index.html" class="division-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-infinity"></i>
+                </div>
+
+                <span class="card-number">02 / POSSIBILITIES</span>
+                <h3>Infinite</h3>
+
+                <p>
+                    Explore ideas, imagination, science, discoveries,
+                    innovation and future possibilities.
+                </p>
+
+                <span class="card-link">
+                    Explore <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+
+            <!-- MULTIVERSE -->
+            <a href="Multiverse/index.html" class="division-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+
+                <span class="card-number">03 / UNIVERSES</span>
+                <h3>Multiverse</h3>
+
+                <p>
+                    Discover 25 technology and creative universes,
+                    from coding and AI to 3D and beyond.
+                </p>
+
+                <span class="card-link">
+                    Explore <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+
+            <!-- DEVLABS -->
+            <a href="DevLabs/index.html" class="division-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+
+                <span class="card-number">04 / CREATION</span>
+                <h3>DevLabs</h3>
+
+                <p>
+                    Explore projects, experiments, prototypes,
+                    development, research and creative labs.
+                </p>
+
+                <span class="card-link">
+                    Explore <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+
+            <!-- FUTURE VENTURES -->
+            <a href="Ventures/index.html" class="division-card future-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+
+                <span class="card-number">05 / FUTURE ENTERPRISE</span>
+                <h3>Future Ventures</h3>
+
+                <p>
+                    Discover future business directions, companies,
+                    brands, products and creative studios.
+                </p>
+
+                <span class="card-link">
+                    Explore <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+
+            <!-- OTHERS -->
+            <a href="#others" class="division-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <span class="card-number">06 / BEYOND DIVISIONS</span>
+                <h3>Others</h3>
+
+                <p>
+                    A flexible space for additional initiatives,
+                    collaborations, resources and future additions.
+                </p>
+
+                <span class="card-link">
+                    Discover <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 03. MEET THE CREATOR -->
+<section class="home-section" id="creator">
+    <div class="container">
+
+        <div class="creator-panel">
+
+            <div class="creator-symbol">∞</div>
+
+            <div class="creator-copy">
+                <span class="eyebrow">THE PERSON BEHIND AIMDL</span>
+
+                <h2>Meet <span>Afsan.</span></h2>
+
+                <p>
+                    I'm Afsan — a creator exploring the world of
+                    technology, development and digital creativity.
+                    AIMDL is the ecosystem where ideas, experiments
+                    and different creative directions come together.
+                </p>
+
+                <p>
+                    From building digital projects to exploring
+                    new technologies, this journey is about learning,
+                    experimenting and creating something meaningful.
+                </p>
+
+                <a href="Afsan/index.html" class="home-btn">
+                    Discover Afsan
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 04. LATEST PROJECTS -->
+<section class="section latest-section home-section" id="projects">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">FROM THE CREATION SPACE</span>
+            <h2>Latest <span>Projects.</span></h2>
+            <p>
+                Ideas taking shape through development,
+                experiments and creation.
+            </p>
+        </div>
+
+        <div class="content-grid">
+
+            <article class="content-card">
+                <div class="content-visual project-visual">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <div class="content-info">
+                    <span class="content-tag">WEB DEVELOPMENT</span>
+                    <h3>AIMDL Official Website</h3>
+
+                    <p>
+                        Building the digital home of an expanding
+                        creative technology ecosystem.
+                    </p>
+
+                    <span class="status">CURRENT PROJECT</span>
+                </div>
+            </article>
+
+            <article class="content-card">
+                <div class="content-visual project-visual second">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <div class="content-info">
+                    <span class="content-tag">IDEA & EXPERIMENT</span>
+                    <h3>Future Creations</h3>
+
+                    <p>
+                        A space for upcoming concepts,
+                        prototypes and creative experiments.
+                    </p>
+
+                    <span class="status">UPCOMING</span>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="DevLabs/index.html" class="home-btn">
+                Explore DevLabs
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 05. LATEST VIDEOS -->
+<section class="section latest-section home-section" id="videos">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">WATCH & DISCOVER</span>
+            <h2>Latest <span>Videos.</span></h2>
+
+            <p>
+                Experiments, challenges and creative journeys
+                from across the AIMDL channels.
+            </p>
+        </div>
+
+        <div class="content-grid">
+
+            <article class="content-card">
+                <div class="content-visual video-visual">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
+
+                <div class="content-info">
+                    <span class="content-tag">BUILD IN PUBLIC</span>
+                    <h3>Upcoming Videos</h3>
+
+                    <p>
+                        New projects, challenges and development
+                        videos will be featured here.
+                    </p>
+
+                    <span class="status">COMING SOON</span>
+                </div>
+            </article>
+
+            <article class="content-card">
+                <div class="content-visual video-visual second">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+
+                <div class="content-info">
+                    <span class="content-tag">CREATIVE JOURNEY</span>
+                    <h3>More Worlds to Explore</h3>
+
+                    <p>
+                        Discover upcoming content from different
+                        creative and technology categories.
+                    </p>
+
+                    <span class="status">COMING SOON</span>
+                </div>
+            </article>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="Afsan/index.html" class="home-btn">
+                Explore Afsan Channels
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 06. EXPLORE MULTIVERSE -->
+<section class="home-section" id="featured-universes">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">EXPLORE THE MULTIVERSE</span>
+
+            <h2>
+                Different Worlds.<br>
+                <span>Endless Exploration.</span>
+            </h2>
+
+            <p>
+                Step into some of the featured universes
+                inside the AIMDL Multiverse.
+            </p>
+        </div>
+
+        <div class="universe-feature-grid">
+
+            <a href="Multiverse/index.html" class="universe-feature">
+                <i class="fa-solid fa-code"></i>
+                <h3>Coding</h3>
+                <p>Programming, logic and software creation.</p>
+            </a>
+
+            <a href="Multiverse/index.html" class="universe-feature">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Artificial Intelligence</h3>
+                <p>AI, machine learning and intelligent systems.</p>
+            </a>
+
+            <a href="Multiverse/index.html" class="universe-feature">
+                <i class="fa-solid fa-gamepad"></i>
+                <h3>Game Development</h3>
+                <p>Interactive worlds, gameplay and game creation.</p>
+            </a>
+
+            <a href="Multiverse/index.html" class="universe-feature">
+                <i class="fa-solid fa-cubes"></i>
+                <h3>3D & Animation</h3>
+                <p>Modeling, animation and digital environments.</p>
+            </a>
+
+        </div>
+
+        <div style="text-align:center; margin-top:35px;">
+            <a href="Multiverse/index.html" class="home-btn">
+                Explore All 25 Universes
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 07. DEVLABS HIGHLIGHT -->
+<section class="home-section" id="devlabs-highlight">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">THE CREATION ENGINE</span>
+            <h2>Inside <span>DevLabs.</span></h2>
+
+            <p>
+                Where concepts move towards experiments,
+                prototypes and real digital creations.
+            </p>
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <h3>Projects & Prototypes</h3>
+
+                <p>
+                    Explore application ideas, games, websites,
+                    software concepts and experimental builds.
+                </p>
+
+                <a href="DevLabs/index.html">
+                    Explore Projects <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-microscope"></i>
+                </div>
+
+                <h3>Experiments & Research</h3>
+
+                <p>
+                    Discover creative experiments, technology
+                    exploration, development logs and research.
+                </p>
+
+                <a href="DevLabs/index.html">
+                    Discover DevLabs <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- 08. FUTURE VENTURES -->
+<section class="home-section" id="future-ventures">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">BUILDING TOWARDS TOMORROW</span>
+            <h2>Future <span>Ventures.</span></h2>
+
+            <p>
+                A vision for future companies, brands,
+                products and creative studios.
+            </p>
+        </div>
+
+        <div class="highlight-grid">
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <h3>Future Companies & Brands</h3>
+
+                <p>
+                    Explore planned directions for technology
+                    companies, digital products and independent brands.
+                </p>
+
+                <span class="planned-label">FUTURE PLANS</span>
+            </div>
+
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+
+                <h3>Creative & Technology Studios</h3>
+
+                <p>
+                    Future possibilities across gaming, animation,
+                    software, AI and digital creativity.
+                </p>
+
+                <span class="planned-label">CONCEPT STAGE</span>
+            </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="Ventures/index.html" class="home-btn">
+                Explore Future Ventures
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 09. OTHERS -->
+<section class="home-section" id="others">
+    <div class="container">
+
+        <div class="home-heading">
+            <span class="eyebrow">ROOM TO EXPAND</span>
+            <h2>Beyond The <span>Divisions.</span></h2>
+
+            <p>
+                AIMDL is designed to grow. Not every future
+                initiative needs to fit into an existing division.
+            </p>
+        </div>
+
+        <div class="others-panel">
+            <i class="fa-solid fa-layer-group"></i>
+
+            <h3>Others — An Open Space</h3>
+
+            <p>
+                This space can bring together future initiatives,
+                collaborations, community projects, useful resources
+                and special creations that expand beyond the
+                five core divisions.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 10. AIMDL VISION -->
+<section class="brand-statement" id="vision">
+    <div class="container">
+
+        <span class="eyebrow">THE AIMDL PHILOSOPHY</span>
+
+        <h2>
+            One Identity.<br>
+            One Ecosystem.<br>
+            <span>Infinite Possibilities.</span>
+        </h2>
+
+        <p>
+            Explore new worlds. Experiment with ideas.
+            Create without boundaries.
+        </p>
+
+        <div style="margin-top:30px;">
+            <a href="#ecosystem" class="home-btn">
+                Explore The Ecosystem
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-brand">
+            <span class="footer-symbol">∞</span>
+            <h2>AIMDL</h2>
+            <p>Afsan Infinite Multiverse DevLabs</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="Afsan/index.html">Afsan</a>
+            <a href="Infinite/index.html">Infinite</a>
+            <a href="Multiverse/index.html">Multiverse</a>
+            <a href="DevLabs/index.html">DevLabs</a>
+            <a href="Ventures/index.html">Ventures</a>
+        </div>
+
+
+        <!-- SOCIAL MEDIA LINKS -->
+        <div class="footer-socials">
+
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+            <a href="https://www.reddit.com/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+                <i class="fa-brands fa-reddit-alien"></i>
+            </a>
+
+            <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+            <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>Explore • Experiment • Create</p>
+            <p>© <span id="currentYear"></span> Afsan Infinite Multiverse DevLabs - AIMDL. All rights reserved.</p>
+        </div>
+
+    </div>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
